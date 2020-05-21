@@ -10,7 +10,7 @@
 
 #-------------------------------- References --------------------------------#
 
-/reference:../../GeonBit.UI/bin/Debug/netstandard2.1/DataTypes.dll
+/reference:..\..\ContentLibraries\DataTypes.dll
 
 #---------------------------------- Content ---------------------------------#
 
