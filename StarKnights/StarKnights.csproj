@@ -1,0 +1,44 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Content\Content.mgcb" />
+    <None Remove="Content\GeonBit.UI\themes\editor\textures\arrow_up.png" />
+    <None Remove="Content\GeonBit.UI\themes\editor\textures\horizontal_line.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Content\GeonBit.UI\themes\editor\textures\horizontal_line.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Content\GeonBit.UI\themes\editor\textures\arrow_up.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <MonoGameContentReference Include="Content\Content.mgcb" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MonoGame.Content.Builder" Version="3.7.0.9" />
+    <PackageReference Include="MonoGame.Framework.DesktopGL.Core" Version="3.8.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GeonBit.UI\GeonBit.UI.csproj" />
+    <ProjectReference Include="..\StarKnightsLibrary\StarKnightsLibrary.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Scenes\test_scene.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

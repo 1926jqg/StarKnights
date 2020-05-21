@@ -1,0 +1,74 @@
+{
+  "SpaceScene": {
+    "width": 4096,
+    "height": 4096,
+    "ships": [
+      {
+        "x": "0",
+        "y": "2000",
+        "angle": "0",
+        "width": "40",
+        "height": "40",
+        "team": "0",
+        "player": true
+      },
+      {
+        "x": "rand(2048,-2048)",
+        "y": "-2000",
+        "height": "40",
+        "width": "40",
+        "team": "1",
+        "count": "0"
+      },
+      {
+        "x": "rand(2048,-2048)",
+        "y": "1950",
+        "height": "40",
+        "width": "40",
+        "team": "0",
+        "count": "1"
+      }
+    ],
+    "triggers": [
+      /*{
+			"Recurring" : false,
+			"Condition" : {
+				"Type" : "ShipExists",
+				"Variables" : {
+					"IsPlayer" : "true",
+					"Location" : "(0,-500)",
+					"Distance" : "100"
+				}
+			},
+			"Effect" : {
+				"Type" : "SendTransmission",
+				"Variables" : {
+					"Duration" : "500",
+					"Message" : "Your engines are at {0}. Your weapons are at {1}. Your velocity is {2}"					
+				},
+				"DataVariables" : {
+					"0" : "Engine.Power",
+					"1" : "WeaponSystem.Power",
+					"2" : "Velocity"
+				}
+			}
+		},*/
+      {
+        "Recurring": false,
+        "Condition": {
+          "Type": "ShipExists",
+          "Variables": {
+            "IsPlayer": "true"
+          }
+        },
+        "Effect": {
+          "Type": "SendTransmission",
+          "Variables": {
+            "Duration": "10000",
+            "Message": "All enemy ships have been destroyed. And some very very very long other stuff. All enemy ships have been destroyed. And some very very very long other stuff. All enemy ships have been destroyed. And some very very very long other stuff. All enemy ships have been destroyed. And some very very very long other stuff. All enemy ships have been destroyed. And some very very very long other stuff. All enemy ships have been destroyed. And some very very very long other stuff. All enemy ships have been destroyed. And some very very very long other stuff. All enemy ships have been destroyed. And some very very very long other stuff."
+          }
+        }
+      }
+    ]
+  }
+}
