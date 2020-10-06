@@ -8,12 +8,12 @@
 // Since: 2016.
 //-----------------------------------------------------------------------------
 #endregion
-using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Content;
-using Microsoft.Xna.Framework;
-using System;
-using GeonBit.UI.Entities;
 using GeonBit.UI.DataTypes;
+using GeonBit.UI.Entities;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.Graphics;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -26,7 +26,7 @@ namespace GeonBit.UI
     public class TexturesGetter<TEnum> where TEnum : IConvertible
     {
         // textures we already loaded
-        Texture2D[] _loadedTextures;
+        readonly Texture2D[] _loadedTextures;
 
         /// <summary>
         /// Get texture for enum state.
@@ -134,16 +134,16 @@ namespace GeonBit.UI
         }
 
         // base path of textures to load (index will be appended to them).
-        string _basepath;
+        readonly string _basepath;
 
         // suffix to add to the end of texture path
-        string _suffix;
+        readonly string _suffix;
 
         // do we use states like down / hover / default for these textures?
-        bool _usesStates;
+        readonly bool _usesStates;
 
         // textures types count
-        int _typesCount;
+        readonly int _typesCount;
 
         /// <summary>
         /// Create the texture getter with base path.
@@ -168,7 +168,7 @@ namespace GeonBit.UI
     {
 
         /// <summary>Lookup for char > string conversion</summary>
-        private static Dictionary<char, string> charStringDict = new Dictionary<char, string>();
+        private static readonly Dictionary<char, string> charStringDict = new Dictionary<char, string>();
 
         /// <summary>Just a plain white texture, used internally.</summary>
         public static Texture2D WhiteTexture;

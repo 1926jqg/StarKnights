@@ -5,11 +5,13 @@ VisualStudioVersion = 16.0.29123.88
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StarKnights", "StarKnights\StarKnights.csproj", "{40F40F95-B6B5-49BF-96D3-C1BBA1807E74}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeonBit.UI", "GeonBit.UI\GeonBit.UI.csproj", "{92DA2C4A-69EA-42CA-9515-6D4BAA805E44}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GeonBit.UI", "GeonBit.UI\GeonBit.UI.csproj", "{92DA2C4A-69EA-42CA-9515-6D4BAA805E44}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataTypes", "DataTypes\DataTypes.csproj", "{0F5B2861-87CA-490D-A7EF-756272C0AA83}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataTypes", "DataTypes\DataTypes.csproj", "{0F5B2861-87CA-490D-A7EF-756272C0AA83}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StarKnightsLibrary", "StarKnightsLibrary\StarKnightsLibrary.csproj", "{79067DDA-DE57-4825-9FCD-1CFC158DD00C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StarKnightsLibrary", "StarKnightsLibrary\StarKnightsLibrary.csproj", "{79067DDA-DE57-4825-9FCD-1CFC158DD00C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StarKnightsTests", "StarKnightsTests\StarKnightsTests.csproj", "{502A22BE-B005-434F-BC87-F6184523F821}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{79067DDA-DE57-4825-9FCD-1CFC158DD00C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{79067DDA-DE57-4825-9FCD-1CFC158DD00C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{79067DDA-DE57-4825-9FCD-1CFC158DD00C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{502A22BE-B005-434F-BC87-F6184523F821}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{502A22BE-B005-434F-BC87-F6184523F821}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{502A22BE-B005-434F-BC87-F6184523F821}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{502A22BE-B005-434F-BC87-F6184523F821}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

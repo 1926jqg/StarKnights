@@ -7,10 +7,10 @@
 // Since: 2016.
 //-----------------------------------------------------------------------------
 #endregion
+using GeonBit.UI.Utils;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
-using GeonBit.UI.Utils;
 
 namespace GeonBit.UI.Entities
 {
@@ -48,10 +48,10 @@ namespace GeonBit.UI.Entities
         Point _prevSize = Point.Zero;
 
         // list of paragraphs used to show the values
-        List<Paragraph> _paragraphs = new List<Paragraph>();
+        readonly List<Paragraph> _paragraphs = new List<Paragraph>();
 
         // scrollbar to scroll through the list
-        VerticalScrollbar _scrollbar;
+        readonly VerticalScrollbar _scrollbar;
 
         // indicate that we had a resize event while not being visible
         bool _hadResizeWhileNotVisible = false;
@@ -95,7 +95,7 @@ namespace GeonBit.UI.Entities
         public SerializableDictionary<int, bool> LockedItems = new SerializableDictionary<int, bool>();
 
         // list of values
-        List<string> _list = new List<string>();
+        readonly List<string> _list = new List<string>();
 
         /// <summary>
         /// Get / set all items.
@@ -103,7 +103,7 @@ namespace GeonBit.UI.Entities
         public string[] Items
         {
             get { return _list.ToArray(); }
-            set { _list.Clear(); _list.AddRange(value);  OnListChanged(); }
+            set { _list.Clear(); _list.AddRange(value); OnListChanged(); }
         }
 
         /// <summary>
@@ -160,7 +160,7 @@ namespace GeonBit.UI.Entities
         /// <summary>
         /// Create emprt select list with default params.
         /// </summary>
-        public SelectList() : this (Anchor.Auto)
+        public SelectList() : this(Anchor.Auto)
         {
         }
 
@@ -209,7 +209,7 @@ namespace GeonBit.UI.Entities
             _list.Insert(index, value);
             OnListChanged();
         }
-        
+
         /// <summary>
         /// Remove value from the list.
         /// </summary>
@@ -429,7 +429,7 @@ namespace GeonBit.UI.Entities
                 if (_scrollbar.Max < 2) { _scrollbar.Max = 2; }
                 _scrollbar.StepsCount = _scrollbar.Max;
                 _scrollbar.Visible = true;
-            } 
+            }
             // if no scrollbar is needed, hide it
             else
             {
@@ -489,7 +489,7 @@ namespace GeonBit.UI.Entities
             get { return _scrollbar.Value; }
             set { _scrollbar.Value = value; }
         }
-        
+
         /// <summary>
         /// Clear current selection.
         /// </summary>
@@ -594,7 +594,7 @@ namespace GeonBit.UI.Entities
             for (int i = 0; i < _paragraphs.Count; ++i)
             {
                 // get item index
-                int item_index = i + (int)_scrollbar.Value;
+                int item_index = i + _scrollbar.Value;
 
                 // get current paragraph
                 var par = _paragraphs[i];

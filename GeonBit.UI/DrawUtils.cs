@@ -18,7 +18,7 @@ namespace GeonBit.UI
     public class DrawUtils
     {
         // Stack of rendering targets
-        private Stack<RenderTarget2D> _renderTargets = new Stack<RenderTarget2D>();
+        private readonly Stack<RenderTarget2D> _renderTargets = new Stack<RenderTarget2D>();
 
         // last used render target
         RenderTarget2D _lastRenderTarget = null;
@@ -105,7 +105,7 @@ namespace GeonBit.UI
         /// <returns>Color if provided or default color, with alpha applied.</returns>
         public virtual Color FixColorOpacity(Color color)
         {
-            return color * ((float)color.A / 255.0f);
+            return color * (color.A / 255.0f);
         }
 
         /// <summary>
@@ -236,7 +236,7 @@ namespace GeonBit.UI
                     if (toCut > 0)
                     {
                         destRect.Width -= toCut;
-                        srcRect.Width -= (int)((float)toCut / ScaleFactor);
+                        srcRect.Width -= (int)(toCut / ScaleFactor);
                     }
 
                     // draw upper part
@@ -283,7 +283,7 @@ namespace GeonBit.UI
                     if (toCut > 0)
                     {
                         destRect.Height -= toCut;
-                        srcRect.Height -= (int)((float)toCut / ScaleFactor);
+                        srcRect.Height -= (int)(toCut / ScaleFactor);
                     }
 
                     // draw left part
@@ -299,7 +299,7 @@ namespace GeonBit.UI
                     // advance current y position
                     currY += centerSizeDest.Y;
 
-                // stop loop when reach bottom
+                    // stop loop when reach bottom
                 } while (currY < destination.Height - frameSizeDest.Y);
             }
 
@@ -335,7 +335,7 @@ namespace GeonBit.UI
                     if (toCutX > 0)
                     {
                         destRect.Width -= toCutX;
-                        srcRect.Width -= (int)((float)toCutX / ScaleFactor);
+                        srcRect.Width -= (int)(toCutX / ScaleFactor);
                     }
 
                     // iterate over center segments height
@@ -349,7 +349,7 @@ namespace GeonBit.UI
                         if (toCutY > 0)
                         {
                             destRect.Height -= toCutY;
-                            srcRect.Height -= (int)((float)toCutY / ScaleFactor);
+                            srcRect.Height -= (int)(toCutY / ScaleFactor);
                         }
 
                         // draw center segment
@@ -358,13 +358,13 @@ namespace GeonBit.UI
                         // advance current y position
                         currY += centerSizeDest.Y;
 
-                    // stop loop when reach the bottom
+                        // stop loop when reach the bottom
                     } while (currY < destination.Height - frameSizeDest.Y * 2);
 
                     // advance current x position
                     currX += centerSizeDest.X;
 
-                // stop loop when reach the right side
+                    // stop loop when reach the right side
                 } while (currX < destination.Width - frameSizeDest.X * 2);
             }
         }
@@ -384,7 +384,7 @@ namespace GeonBit.UI
             color = FixColorOpacity(color);
 
             // calc frame size in texture file (Src) and in destination render rect (Dest)
-            float ScaleXfac = (float)destination.Height / (float)texture.Height;
+            float ScaleXfac = destination.Height / (float)texture.Height;
             Vector2 frameSizeTextureVector = new Vector2(texture.Width * frameWidth, texture.Height);
             Point frameSizeSrc = VectorToRoundPoint(frameSizeTextureVector);
             Point frameSizeDest = VectorToRoundPoint(new Vector2(frameSizeTextureVector.X * ScaleXfac * frameScale, destination.Height));
@@ -438,7 +438,7 @@ namespace GeonBit.UI
                     if (toCut > 0)
                     {
                         destRect.Width -= toCut;
-                        srcRect.Width -= (int)((float)toCut / ((float)srcRect.Width / (float)destRect.Width));
+                        srcRect.Width -= (int)(toCut / (srcRect.Width / (float)destRect.Width));
                     }
 
                     // draw center segment
@@ -467,7 +467,7 @@ namespace GeonBit.UI
             color = FixColorOpacity(color);
 
             // calc frame size in texture file (Src) and in destination render rect (Dest)
-            float ScaleYfac = (float)destination.Width / (float)texture.Width;
+            float ScaleYfac = destination.Width / (float)texture.Width;
             Vector2 frameSizeTextureVector = new Vector2(texture.Width, texture.Height * frameWidth);
             Point frameSizeSrc = VectorToRoundPoint(frameSizeTextureVector);
             Point frameSizeDest = VectorToRoundPoint(new Vector2(destination.Width, frameSizeTextureVector.Y * ScaleYfac * frameScale));
@@ -521,7 +521,7 @@ namespace GeonBit.UI
                     if (toCut > 0)
                     {
                         destRect.Height -= toCut;
-                        srcRect.Height -= (int)((float)toCut / ((float)srcRect.Height / (float)destRect.Height));
+                        srcRect.Height -= (int)(toCut / (srcRect.Height / (float)destRect.Height));
                     }
 
                     // draw center segment

@@ -64,7 +64,7 @@
         "Effect": {
           "Type": "SendTransmission",
           "Variables": {
-            "Duration": "10000",
+            "Duration": "10",
             "Message": "All enemy ships have been destroyed. And some very very very long other stuff. All enemy ships have been destroyed. And some very very very long other stuff. All enemy ships have been destroyed. And some very very very long other stuff. All enemy ships have been destroyed. And some very very very long other stuff. All enemy ships have been destroyed. And some very very very long other stuff. All enemy ships have been destroyed. And some very very very long other stuff. All enemy ships have been destroyed. And some very very very long other stuff. All enemy ships have been destroyed. And some very very very long other stuff."
           }
         }

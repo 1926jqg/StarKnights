@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 using Rectangle = Microsoft.Xna.Framework.Rectangle;
 using XNARectangle = Microsoft.Xna.Framework.Rectangle;
 
-namespace StarKnightsLibrary.Scenes
+namespace StarKnightsLibrary.GameFlow
 {
     public class Space
     {
@@ -226,7 +226,7 @@ namespace StarKnightsLibrary.Scenes
 
             spriteBatch.DrawBorder(contentContainer, bounds, 1, Color.Green);
 
-            var playerShip = PointOfViewObject as Ship;
+            var playerShip = PointOfViewObject;
             var target = playerShip.Target as Ship;
             foreach (var spaceObject in GetNonPointOfViewObjects())
             {

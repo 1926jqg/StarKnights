@@ -8,11 +8,10 @@
 // Since: 2016.
 //-----------------------------------------------------------------------------
 #endregion
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using GeonBit.UI.Entities;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
-using System.Runtime.Serialization;
+using Microsoft.Xna.Framework.Graphics;
 using System.Xml.Serialization;
 
 
@@ -140,7 +139,7 @@ namespace GeonBit.UI
         /// For example, trying to select a value that doesn't exist from a list would do nothing instead of throwing exception.
         /// </summary>
         public bool SilentSoftErrors = false;
-        
+
         /// <summary>
         /// If true, will add debug rendering to UI.
         /// </summary>
@@ -152,7 +151,8 @@ namespace GeonBit.UI
         /// entities will use by-default (for example Buttons text, SelectList items, etc.).
         /// </summary>
         static public DefaultParagraphGenerator DefaultParagraph =
-            (string text, Anchor anchor, Color? color, float? scale, Vector2? size, Vector2? offset) => {
+            (string text, Anchor anchor, Color? color, float? scale, Vector2? size, Vector2? offset) =>
+            {
                 if (color != null)
                 {
                     return new RichParagraph(text, anchor, color.Value, scale, size, offset);
@@ -295,7 +295,7 @@ namespace GeonBit.UI
 
         // cursor texture.
         Texture2D _cursorTexture = null;
-        
+
         // cursor width.
         int _cursorWidth = 32;
 
@@ -420,7 +420,7 @@ namespace GeonBit.UI
         /// Create the user interface instance.
         /// </summary>
         public UserInterface()
-        { 
+        {
             // sanity test
             if (_content == null)
             {
@@ -474,7 +474,7 @@ namespace GeonBit.UI
             spriteBatch.Begin(SpriteSortMode.Deferred, BlendState, SamplerState, DepthStencilState.None, RasterizerState.CullCounterClockwise);
 
             // calculate cursor size
-            float cursorSize = CursorScale * GlobalScale * ((float)_cursorWidth / (float)_cursorTexture.Width);
+            float cursorSize = CursorScale * GlobalScale * (_cursorWidth / (float)_cursorTexture.Width);
 
             // get cursor position and draw it
             Vector2 cursorPos = MouseInputProvider.MousePosition;
@@ -528,8 +528,9 @@ namespace GeonBit.UI
             if (MouseInputProvider != KeyboardInputProvider) { KeyboardInputProvider.Update(gameTime); }
 
             // unset the drag target if the mouse was released
-            if (_dragTarget != null && !MouseInputProvider.MouseButtonDown(MouseButton.Left)) {
-              _dragTarget = null;
+            if (_dragTarget != null && !MouseInputProvider.MouseButtonDown(MouseButton.Left))
+            {
+                _dragTarget = null;
             }
 
             // update root panel

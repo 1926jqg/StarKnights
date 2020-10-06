@@ -1,8 +1,6 @@
 ﻿using GeonBit.UI;
-using GeonBit.UI.DataTypes;
 using GeonBit.UI.Entities;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using StarKnightsLibrary.Scenes;
 using StarKnightsLibrary.UtilityObjects;
 using System.Collections.Generic;
@@ -135,14 +133,14 @@ namespace StarKnightsLibrary.Transmissions
 
         public void Draw(UserInterface ui, IContentContainer contentContainer)
         {
-            if(_transmissionPanel == null)
+            if (_transmissionPanel == null)
             {
                 SetupTransmissionPanel(ui);
             }
             var transmission = ActiveTransmission;
 
             if (transmission != null)
-            {                
+            {
                 var font = Resources.Fonts[(int)_paragraph.TextStyle];// contentContainer.LoadFont("myFont");
                 var fontSize = font.MeasureString("a");
                 var message = string.Join("\n", GetVisibleMessageLines((int)fontSize.X, (int)fontSize.Y));
@@ -153,7 +151,7 @@ namespace StarKnightsLibrary.Transmissions
                 _paragraph.Text = message;
                 _image.Texture = pixel;
             }
-            else if(_transmissionPanel.Visible)
+            else if (_transmissionPanel.Visible)
             {
                 _transmissionPanel.Visible = false;
             }

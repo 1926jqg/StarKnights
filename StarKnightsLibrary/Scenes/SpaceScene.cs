@@ -1,5 +1,7 @@
-﻿using Microsoft.Xna.Framework;
+﻿using GeonBit.UI;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using StarKnightsLibrary.GameFlow;
 using StarKnightsLibrary.GameObjects.Ships;
 using StarKnightsLibrary.GameObjects.Ships.Deciders;
 using StarKnightsLibrary.Transmissions;
@@ -7,7 +9,6 @@ using StarKnightsLibrary.Triggers;
 using StarKnightsLibrary.UI;
 using StarKnightsLibrary.UtilityObjects;
 using System.Collections.Generic;
-using GeonBit.UI;
 
 namespace StarKnightsLibrary.Scenes
 {
@@ -49,7 +50,7 @@ namespace StarKnightsLibrary.Scenes
             spriteBatch.End();
 
             spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend);
-            var playerShip = _space.PointOfViewObject as Ship;
+            var playerShip = _space.PointOfViewObject;
             playerShip.Draw(spriteBatch, contentContainer);
             _hud.Draw(spriteBatch, contentContainer, _userInterface);
             spriteBatch.End();
@@ -58,11 +59,11 @@ namespace StarKnightsLibrary.Scenes
         }
 
         public void Update(GameTime gameTime)
-        {            
+        {
             _triggerManager.Update(this);
             _transmissionManager.Update(this);
             _userInterface.Update(gameTime);
-            _space.Update();            
+            _space.Update();
         }
 
         private Matrix GetMatrix()

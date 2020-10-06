@@ -14,10 +14,9 @@
 // Since: 2016.
 //-----------------------------------------------------------------------------
 #endregion
-using System.Collections.Generic;
+using GeonBit.UI.DataTypes;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using GeonBit.UI.DataTypes;
 
 namespace GeonBit.UI.Entities
 {
@@ -69,7 +68,7 @@ namespace GeonBit.UI.Entities
 
         /// <summary>Optional custom skin that override's the default theme button textures.</summary>
         private Texture2D[] _customSkin = null;
-        
+
         /// <summary>Frame width for when using custom skin.</summary>
         private Vector2 _customFrame = Vector2.Zero;
 
@@ -204,7 +203,7 @@ namespace GeonBit.UI.Entities
             // get mouse state for graphics
             EntityState state = _entityState;
             if (Checked) { state = EntityState.MouseDown; }
-           
+
             // get texture based on skin and state
             Texture2D texture = _customSkin == null ? Resources.ButtonTextures[_skin, state] : _customSkin[(int)state];
 

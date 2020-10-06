@@ -1,9 +1,9 @@
-﻿using Microsoft.Xna.Framework;
+﻿using GeonBit.UI;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using StarKnightsLibrary.Scenes;
 using StarKnightsLibrary.UtilityObjects;
-using GeonBit.UI;
 
 namespace StarKnights
 {
@@ -34,7 +34,7 @@ namespace StarKnights
         protected override void Initialize()
         {
             UserInterface.Initialize(Content, BuiltinThemes.editor);
-            
+
 
             base.Initialize();
         }
@@ -45,7 +45,7 @@ namespace StarKnights
             _graphics.PreferredBackBufferHeight = GraphicsDevice.DisplayMode.Height;
             _graphics.IsFullScreen = true;
             _graphics.ApplyChanges();
-            return new StartMenuScene(_graphics.GraphicsDevice.Viewport);  
+            return new StartMenuScene(_graphics.GraphicsDevice.Viewport);
         }
 
         /// <summary>

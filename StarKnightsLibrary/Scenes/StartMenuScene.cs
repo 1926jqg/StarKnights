@@ -46,7 +46,7 @@ namespace StarKnightsLibrary.Scenes
             Ticks++;
             _userInterface.Draw(spriteBatch);
         }
-        
+
         public void Update(GameTime gameTime)
         {
             _userInterface.Update(gameTime);

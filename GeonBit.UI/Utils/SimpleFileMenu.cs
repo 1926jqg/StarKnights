@@ -6,8 +6,8 @@
 // Since: 2017.
 //-----------------------------------------------------------------------------
 #endregion
-using System.Collections.Generic;
 using Microsoft.Xna.Framework;
+using System.Collections.Generic;
 
 
 namespace GeonBit.UI.Utils

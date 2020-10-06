@@ -78,7 +78,7 @@ namespace GeonBit.UI.Entities
         override protected Texture2D GetTexture()
         {
             EntityState state = _entityState;
-            if (state != EntityState.MouseDown && (bool)Checked) { state = EntityState.MouseDown; }
+            if (state != EntityState.MouseDown && Checked) { state = EntityState.MouseDown; }
             return Resources.RadioTextures[state];
         }
 

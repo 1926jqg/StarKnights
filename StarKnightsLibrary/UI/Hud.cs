@@ -1,13 +1,13 @@
-﻿using Microsoft.Xna.Framework;
+﻿using GeonBit.UI;
+using GeonBit.UI.Entities;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using StarKnightsLibrary.Scenes;
+using StarKnightsLibrary.GameFlow;
 using StarKnightsLibrary.GameObjects.Projectiles.Missiles;
 using StarKnightsLibrary.GameObjects.Ships;
 using StarKnightsLibrary.Transmissions;
 using StarKnightsLibrary.UtilityObjects;
-using GeonBit.UI;
 using System.Text;
-using GeonBit.UI.Entities;
 
 namespace StarKnightsLibrary.UI
 {
@@ -26,7 +26,7 @@ namespace StarKnightsLibrary.UI
             _height = height;
             TransmissionManager = new TransmissionManager(width - height - 28 - 250, height - 2, 140);
             _space = space;
-            _paragraph = new RichParagraph("", scale: 1f, offset: new Vector2(-10, -10), size: new Vector2(250,200));
+            _paragraph = new RichParagraph("", scale: 1f, offset: new Vector2(-10, -10), size: new Vector2(250, 200));
             _paragraph.Padding = new Vector2(0, 0);
         }
 
@@ -39,7 +39,7 @@ namespace StarKnightsLibrary.UI
 
         private void DrawInfo(UserInterface ui, IContentContainer contentContainer)
         {
-            var playerShip = _space.PointOfViewObject as Ship;
+            var playerShip = _space.PointOfViewObject;
             var target = playerShip.Target as Ship;
 
             var builder = new StringBuilder();
@@ -52,13 +52,13 @@ namespace StarKnightsLibrary.UI
             builder.AppendLine(string.Format("Weapons:        {{{{GREEN}}}}{0}{{{{DEFAULT}}}}", new string('o', playerShip.WeaponSystem.Power)));
             builder.AppendLine(string.Format("In Bounds:      {0}", _space.IsInBounds(playerShip)));
 
-            if(_infoPanel == null)
+            if (_infoPanel == null)
             {
                 const int panelWidth = 250;
                 const int panelHeight = 200;
                 _infoPanel = new Panel(
-                    new Vector2(panelWidth, panelHeight + 9), 
-                    anchor: Anchor.TopLeft, 
+                    new Vector2(panelWidth, panelHeight + 9),
+                    anchor: Anchor.TopLeft,
                     offset: new Vector2(_width - panelWidth - 10, ui.ScreenHeight - panelHeight - 13));
                 _infoPanel.Opacity = 128;
                 ui.AddEntity(_infoPanel);

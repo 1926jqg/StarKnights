@@ -10,7 +10,7 @@ namespace GeonBit.UI.Animators
     {
         // current wave peak position.
         private float _currPosition = 0f;
-        
+
         /// <summary>
         /// Wave movement speed.
         /// </summary>
@@ -30,7 +30,7 @@ namespace GeonBit.UI.Animators
         /// Should play this animation in a loop?
         /// </summary>
         public bool Loop = true;
-        
+
         /// <summary>
         /// Return if an entity type is compatible with this animator.
         /// </summary>
@@ -106,7 +106,7 @@ namespace GeonBit.UI.Animators
         /// </summary>
         private void PerCharacterManipulationFunc(Entities.RichParagraph paragraph, char currChar, int index, ref Color fillColor, ref Color outlineColor, ref int outlineWidth, ref Vector2 offset, ref float scale)
         {
-            float distance = System.Math.Abs((float)index - _currPosition);
+            float distance = System.Math.Abs(index - _currPosition);
             offset.Y = -WaveHeight / (1f + ((distance * distance) / WaveLengthFactor));
         }
     }

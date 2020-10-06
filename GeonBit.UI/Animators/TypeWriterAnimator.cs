@@ -1,7 +1,4 @@
-﻿using Microsoft.Xna.Framework;
-
-
-namespace GeonBit.UI.Animators
+﻿namespace GeonBit.UI.Animators
 {
     /// <summary>
     /// An animator that makes an entity types text into Paragraph over time.
@@ -33,7 +30,7 @@ namespace GeonBit.UI.Animators
         /// If value = 1f it means it will take a second to type each character.
         /// </summary>
         public float SpeedFactor = 10f;
-        
+
         /// <summary>
         /// Return if an entity type is compatible with this animator.
         /// </summary>
@@ -75,7 +72,7 @@ namespace GeonBit.UI.Animators
                 {
                     var openingDenote = Entities.RichParagraphStyleInstruction._styleInstructionsOpening;
                     var closingDenote = Entities.RichParagraphStyleInstruction._styleInstructionsClosing;
-                    if (_currPosition + openingDenote.Length < _text.Length && 
+                    if (_currPosition + openingDenote.Length < _text.Length &&
                         _text.Substring(_currPosition, openingDenote.Length) == openingDenote)
                     {
                         var closingPosition = _text.IndexOf(closingDenote, _currPosition);

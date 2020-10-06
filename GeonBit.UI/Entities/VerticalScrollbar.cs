@@ -99,7 +99,7 @@ namespace GeonBit.UI.Entities
             var mousePos = GetMousePos(_lastScrollVal.ToVector2());
 
             // if in the middle calculate value based on mouse position
-            if ((mousePos.Y >= _destRect.Y + _frameActualHeight * 0.5) && 
+            if ((mousePos.Y >= _destRect.Y + _frameActualHeight * 0.5) &&
                (mousePos.Y <= _destRect.Bottom - _frameActualHeight * 0.5))
             {
                 float relativePos = (mousePos.Y - _destRect.Y - _frameActualHeight * 0.5f - _markHeight * 0.5f);
@@ -140,7 +140,7 @@ namespace GeonBit.UI.Entities
 
             // calc the size of the mark piece
             int markWidth = _destRect.Width;
-            _markHeight = (int)(((float)markTexture.Height / (float)markTexture.Width) * (float)markWidth);
+            _markHeight = (int)((markTexture.Height / (float)markTexture.Width) * markWidth);
 
             // calc frame width in pixels
             _frameActualHeight = FrameHeight * texture.Height * ScaleYfac;
@@ -174,7 +174,7 @@ namespace GeonBit.UI.Entities
         /// Calculate max value based on siblings (note: only if AdjustMaxAutomatically is true)
         /// </summary>
         private void CalcAutoMaxValue()
-        { 
+        {
             // if need to adjust max automatically
             if (AdjustMaxAutomatically)
             {

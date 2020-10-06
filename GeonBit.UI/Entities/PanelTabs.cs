@@ -8,10 +8,9 @@
 // Since: 2016.
 //-----------------------------------------------------------------------------
 #endregion
-using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using GeonBit.UI.DataTypes;
+using System.Collections.Generic;
 
 namespace GeonBit.UI.Entities
 {
@@ -65,7 +64,7 @@ namespace GeonBit.UI.Entities
 
         /// <summary>List of tabs data currently in panel tabs.</summary>
         [System.Xml.Serialization.XmlIgnore]
-        private List<TabData> _tabs = new List<TabData>();
+        private readonly List<TabData> _tabs = new List<TabData>();
 
         /// <summary>A special internal panel to hold all the tab buttons.</summary>
         private Panel _buttonsPanel;
@@ -259,7 +258,7 @@ namespace GeonBit.UI.Entities
             _tabs.Add(newTab);
 
             // update all button sizes
-            float width = 1f / (float)_tabs.Count;
+            float width = 1f / _tabs.Count;
             if (width == 1) { width = 0; }
             foreach (TabData data in _tabs)
             {
@@ -278,7 +277,7 @@ namespace GeonBit.UI.Entities
             newTab.panel.Visible = false;
 
             // attach callback to newly created button
-            newTab.button.OnValueChange = (Entity entity) => 
+            newTab.button.OnValueChange = (Entity entity) =>
             {
                 // get self as a button
                 Button self = (Button)(entity);
@@ -312,7 +311,7 @@ namespace GeonBit.UI.Entities
                 {
                     _activeTab = (TabData)selfPanel.AttachedData;
                 }
-                
+
                 // if at this phase there's no active panel, revert by checking self again
                 // it could happen if user click the same tab button twice or via code.
                 if (_activeTab == null && prevActive == selfPanel)

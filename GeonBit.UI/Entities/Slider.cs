@@ -151,7 +151,7 @@ namespace GeonBit.UI.Entities
             if (!UserInterface.Active._isDeserializing)
             {
                 // round to steps
-                float stepSize = (float)GetStepSize();
+                float stepSize = GetStepSize();
                 value = (int)(System.Math.Round(((double)value) / stepSize) * stepSize);
 
                 // camp between min and max
@@ -255,7 +255,7 @@ namespace GeonBit.UI.Entities
         /// <returns>Current value as percent between min and max (0f-1f).</returns>
         public float GetValueAsPercent()
         {
-            return (float)(_value - Min) / (float)(Max - Min);
+            return (_value - Min) / (float)(Max - Min);
         }
 
         /// <summary>
@@ -283,7 +283,7 @@ namespace GeonBit.UI.Entities
 
             // calc the size of the mark piece
             int markHeight = _destRect.Height;
-            _markWidth = (int)(((float)markTexture.Width / (float)markTexture.Height) * (float)markHeight);
+            _markWidth = (int)((markTexture.Width / (float)markTexture.Height) * markHeight);
 
             // calc frame width in pixels
             _frameActualWidth = frameWidth * texture.Width * ScaleXfac;

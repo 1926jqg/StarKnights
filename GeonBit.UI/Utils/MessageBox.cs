@@ -160,7 +160,7 @@ namespace GeonBit.UI.Utils
             }
 
             // add bottom buttons panel
-            var buttonsPanel = new Entities.Panel(new Vector2(0, 70), 
+            var buttonsPanel = new Entities.Panel(new Vector2(0, 70),
                 Entities.PanelSkin.None, size.Value.Y == -1 ? Entities.Anchor.Auto : Entities.Anchor.BottomCenter);
             buttonsPanel.Padding = Vector2.Zero;
             panel.AddChild(buttonsPanel);

@@ -1,5 +1,5 @@
 ﻿using Microsoft.Xna.Framework.Input;
-using StarKnightsLibrary.Scenes;
+using StarKnightsLibrary.GameFlow;
 
 namespace StarKnightsLibrary.GameObjects.Ships
 {

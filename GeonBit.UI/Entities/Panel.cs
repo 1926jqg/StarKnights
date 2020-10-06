@@ -14,10 +14,8 @@
 // Since: 2016.
 //-----------------------------------------------------------------------------
 #endregion
-using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using GeonBit.UI.DataTypes;
 
 namespace GeonBit.UI.Entities
 {
@@ -193,7 +191,7 @@ namespace GeonBit.UI.Entities
             {
                 UpdatePanelRenderTarget(spriteBatch);
             }
-            
+
         }
 
         /// <summary>
@@ -311,7 +309,7 @@ namespace GeonBit.UI.Entities
             {
                 // unbind the render target
                 UserInterface.Active.DrawUtils.PopRenderTarget();
-                
+
                 // draw the render target itself
                 UserInterface.Active.DrawUtils.StartDraw(spriteBatch, IsDisabled());
                 spriteBatch.Draw(_renderTarget, GetRenderTargetRect(), Color.White);
@@ -362,7 +360,7 @@ namespace GeonBit.UI.Entities
                     _scrollbar.RemoveFromParent();
                 }
             }
-        }   
+        }
 
         /// <summary>
         /// Dispose the render target (only if use) and set it to null.

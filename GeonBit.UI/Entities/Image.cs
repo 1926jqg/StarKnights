@@ -7,10 +7,8 @@
 // Since: 2016.
 //-----------------------------------------------------------------------------
 #endregion
-using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using GeonBit.UI.DataTypes;
 
 namespace GeonBit.UI.Entities
 {
@@ -156,7 +154,7 @@ namespace GeonBit.UI.Entities
         public void CalcAutoWidth()
         {
             UpdateDestinationRectsIfDirty();
-            var width = ((float)_destRect.Height / (float)Texture.Height) * Texture.Width;
+            var width = (_destRect.Height / (float)Texture.Height) * Texture.Width;
             Size = new Vector2(width, _size.Y);
         }
 
@@ -168,7 +166,7 @@ namespace GeonBit.UI.Entities
         public void CalcAutoHeight()
         {
             UpdateDestinationRectsIfDirty();
-            var height = ((float)_destRect.Width / (float)Texture.Width) * Texture.Height;
+            var height = (_destRect.Width / (float)Texture.Width) * Texture.Height;
             Size = new Vector2(_size.X, height);
         }
 

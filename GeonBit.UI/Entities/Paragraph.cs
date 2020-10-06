@@ -12,10 +12,10 @@
 // Since: 2016.
 //-----------------------------------------------------------------------------
 #endregion
-using System.Collections.Generic;
+using GeonBit.UI.DataTypes;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using GeonBit.UI.DataTypes;
+using System.Collections.Generic;
 using System.Text;
 
 namespace GeonBit.UI.Entities
@@ -117,7 +117,7 @@ namespace GeonBit.UI.Entities
         /// Current font used.
         /// </summary>
         protected SpriteFont _currFont;
-        
+
         /// <summary>
         /// Calculated, final text scale.
         /// </summary>
@@ -135,7 +135,7 @@ namespace GeonBit.UI.Entities
 
         // should we break words too long if in wrap mode?
         private bool _breakWordsIfMust = true;
-        
+
         /// <summary>
         /// If WrapWords is true and there's a word that's too long (eg longer than max width), will break the word in the middle.
         /// If false, word wrap will only break lines in between words (eg spaces) and never break words.

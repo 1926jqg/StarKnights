@@ -1,5 +1,4 @@
-﻿using GeonBit.UI;
-using GeonBit.UI.Entities;
+﻿using GeonBit.UI.Entities;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 
@@ -121,8 +120,8 @@ namespace GeonBit.UI.Utils.Forms
     public class Form
     {
         // fields data and entities used to represent them
-        Dictionary<string, FormFieldData> _fieldsData = new Dictionary<string, FormFieldData>();
-        Dictionary<string, Entity> _entities = new Dictionary<string, Entity>();
+        readonly Dictionary<string, FormFieldData> _fieldsData = new Dictionary<string, FormFieldData>();
+        readonly Dictionary<string, Entity> _entities = new Dictionary<string, Entity>();
 
         /// <summary>
         /// Extra space to set between fields.
@@ -253,7 +252,7 @@ namespace GeonBit.UI.Utils.Forms
 
                 // create select list input
                 case FormFieldType.SelectList:
-                    
+
                     // create the entity itself
                     var selectlist = new SelectList(new Vector2(0, -1));
                     foreach (var choice in fieldData.Choices)

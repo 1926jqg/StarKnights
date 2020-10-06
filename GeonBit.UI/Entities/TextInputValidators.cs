@@ -122,8 +122,8 @@ namespace GeonBit.UI.Entities.TextValidators
             }
 
             // validate range
-            if (Min != null && num < (double)Min) { text = Min.ToString(); }
-            if (Max != null && num > (double)Max) { text = Max.ToString(); }
+            if (Min != null && num < Min) { text = Min.ToString(); }
+            if (Max != null && num > Max) { text = Max.ToString(); }
 
             // valid number input
             return true;
@@ -152,7 +152,7 @@ namespace GeonBit.UI.Entities.TextValidators
 
         // regex for english only without spaces
         static readonly System.Text.RegularExpressions.Regex _slugWithSpaces = new System.Text.RegularExpressions.Regex(@"^[a-zA-Z|\ ]+$");
-        
+
         // do we allow spaces in text?
         private bool _allowSpaces;
 

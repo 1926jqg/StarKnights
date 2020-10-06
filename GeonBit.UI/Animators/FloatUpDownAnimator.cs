@@ -52,7 +52,7 @@ namespace GeonBit.UI.Animators
             // update animation and set floating factor
             var dt = (float)UserInterface.Active.CurrGameTime.ElapsedGameTime.TotalSeconds;
             _step += dt * SpeedFactor;
-            var currVal = (float)System.Math.Sin(_step) * (float)FloatingDistance;
+            var currVal = (float)System.Math.Sin(_step) * FloatingDistance;
 
             // apply duration
             if (_timeLeft.HasValue)

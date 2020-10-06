@@ -34,7 +34,7 @@ namespace GeonBit.UI
         GameTime _currTime;
 
         // store all Key values in lookup array
-        Keys[] _allKeyValues;
+        readonly Keys[] _allKeyValues;
 
         /// <summary>An artificial "lag" after a key is pressed when typing text input, to prevent mistake duplications.</summary>
         public float KeysTypeCooldown = 0.6f;

@@ -1,6 +1,6 @@
-﻿using StarKnightsLibrary.Scenes;
-using StarKnightsLibrary.GameObjects.Ships;
+﻿using StarKnightsLibrary.GameObjects.Ships;
 using StarKnightsLibrary.GameObjects.Ships.Deciders;
+using StarKnightsLibrary.Scenes;
 using System.Runtime.Serialization;
 
 namespace StarKnightsLibrary.LoadScript.SpaceSceneLoaderDefinitions

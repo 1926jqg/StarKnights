@@ -7,11 +7,9 @@
 // Since: 2016.
 //-----------------------------------------------------------------------------
 #endregion
-using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using GeonBit.UI.DataTypes;
-using System.Text;
+using System.Collections.Generic;
 
 namespace GeonBit.UI.Entities
 {
@@ -231,7 +229,7 @@ namespace GeonBit.UI.Entities
         /// <summary>
         /// List of parsed style-changing instructions in this paragraph, and the position they apply.
         /// </summary>
-        Dictionary<int, RichParagraphStyleInstruction> _styleInstructions = new Dictionary<int, RichParagraphStyleInstruction>();
+        readonly Dictionary<int, RichParagraphStyleInstruction> _styleInstructions = new Dictionary<int, RichParagraphStyleInstruction>();
 
         /// <summary>
         /// Create the paragraph.

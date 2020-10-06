@@ -1,7 +1,4 @@
-﻿using Microsoft.Xna.Framework;
-
-
-namespace GeonBit.UI.Animators
+﻿namespace GeonBit.UI.Animators
 {
     /// <summary>
     /// An animator that makes an entity fade out.
@@ -28,7 +25,7 @@ namespace GeonBit.UI.Animators
             var newOpacity = System.Math.Max(0f, _timeLeft);
 
             // update target entity
-            TargetEntity.Opacity = (byte)(newOpacity * (float)byte.MaxValue);
+            TargetEntity.Opacity = (byte)(newOpacity * byte.MaxValue);
         }
 
         /// <summary>

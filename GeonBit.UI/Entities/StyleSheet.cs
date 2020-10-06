@@ -8,9 +8,9 @@
 // Since: 2016.
 //-----------------------------------------------------------------------------
 #endregion
-using System.Text;
-using System.Collections.Generic;
 using GeonBit.UI.DataTypes;
+using System.Collections.Generic;
+using System.Text;
 
 namespace GeonBit.UI.Entities
 {
@@ -73,7 +73,7 @@ namespace GeonBit.UI.Entities
         }
 
         // internal mechanism to reduce memory usage.
-        private static Dictionary<KeyValuePair<string, EntityState>, string> _identifiersCache = new Dictionary<KeyValuePair<string, EntityState>, string>(new StringEntityStateKvpComparer());
+        private static readonly Dictionary<KeyValuePair<string, EntityState>, string> _identifiersCache = new Dictionary<KeyValuePair<string, EntityState>, string>(new StringEntityStateKvpComparer());
 
         /// <summary>
         /// Get the full string that represent a style property identifier.

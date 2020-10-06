@@ -42,8 +42,8 @@ namespace GeonBit.UI.Entities
         public HorizontalLine(Anchor anchor, Vector2? offset = null) :
             base(Vector2.Zero, anchor, offset)
         {
-			// locked by default, so we won't do events etc.
-			Locked = true;
+            // locked by default, so we won't do events etc.
+            Locked = true;
 
             // update style
             UpdateStyle(DefaultStyle);

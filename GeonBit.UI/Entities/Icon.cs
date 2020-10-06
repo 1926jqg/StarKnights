@@ -14,10 +14,9 @@
 // Since: 2016.
 //-----------------------------------------------------------------------------
 #endregion
-using System.Collections.Generic;
+using GeonBit.UI.DataTypes;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using GeonBit.UI.DataTypes;
 
 namespace GeonBit.UI.Entities
 {
@@ -196,7 +195,7 @@ namespace GeonBit.UI.Entities
         /// <summary>
         /// Create default icon.
         /// </summary>
-        public Icon() : this (IconType.Apple)
+        public Icon() : this(IconType.Apple)
         {
         }
 

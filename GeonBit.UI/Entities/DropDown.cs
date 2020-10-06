@@ -52,7 +52,7 @@ namespace GeonBit.UI.Entities
         public static StyleSheet DefaultSelectedParagraphStyle = new StyleSheet();
 
         // dictionary of special events for specific items selection
-        private Dictionary<string, System.Action> _perItemCallbacks = new Dictionary<string, System.Action>();
+        private readonly Dictionary<string, System.Action> _perItemCallbacks = new Dictionary<string, System.Action>();
 
         // last known selected index
         private int _lastSelected = -1;

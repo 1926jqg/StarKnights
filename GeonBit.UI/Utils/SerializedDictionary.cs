@@ -7,9 +7,7 @@
 // Since: 2018.
 //-----------------------------------------------------------------------------
 #endregion
-using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Xml.Serialization;
 
 namespace GeonBit.UI.Utils

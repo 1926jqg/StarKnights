@@ -12,11 +12,10 @@
 // Since: 2016.
 //-----------------------------------------------------------------------------
 #endregion
-using System.Reflection;
-using System.Collections.Generic;
+using GeonBit.UI.DataTypes;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using GeonBit.UI.DataTypes;
+using System.Collections.Generic;
 
 namespace GeonBit.UI.Entities
 {
@@ -158,7 +157,7 @@ namespace GeonBit.UI.Entities
         {
             get
             {
-                return _children.AsReadOnly() as IReadOnlyList<Entity>;
+                return _children.AsReadOnly();
             }
         }
 
@@ -198,7 +197,7 @@ namespace GeonBit.UI.Entities
         protected int _indexInParent;
 
         // list of animators attached to this entity.
-        private List<Animators.IAnimator> _animators = new List<Animators.IAnimator>();
+        private readonly List<Animators.IAnimator> _animators = new List<Animators.IAnimator>();
 
         /// <summary>
         /// Optional extra drawing priority, to bring certain objects before others.
@@ -283,7 +282,7 @@ namespace GeonBit.UI.Entities
         /// This is especially useful for entities with size that depends on their parent entity size, for example
         /// if you define an entity to take 20% of its parent space but can't be less than 200 pixels width.
         /// </summary>
-        public Vector2? MinSize { get { return _minSize; } set { _minSize = value;  MarkAsDirty(); } }
+        public Vector2? MinSize { get { return _minSize; } set { _minSize = value; MarkAsDirty(); } }
 
         /// <summary>
         /// If defined, will limit the maximum size of this entity when calculating size.
@@ -655,7 +654,7 @@ namespace GeonBit.UI.Entities
             get
             {
                 return new Vector2(
-                    _size.X < 1 ? _size.X : _size.X * GlobalScale, 
+                    _size.X < 1 ? _size.X : _size.X * GlobalScale,
                     _size.Y < 1 ? _size.Y : _size.Y * GlobalScale);
             }
         }
@@ -713,7 +712,8 @@ namespace GeonBit.UI.Entities
         public Entity Background
         {
             get { return _background; }
-            set {
+            set
+            {
                 if (value != null && value._parent != null)
                 {
                     throw new Exceptions.InvalidStateException("Cannot set background entity that have a parent!");
@@ -739,7 +739,7 @@ namespace GeonBit.UI.Entities
         /// <param name="identifier">Identifier to find.</param>
         /// <param name="recursive">If true, will search recursively in children of children. If false, will search only in direct children.</param>
         /// <returns>First found entity with given identifier and type, or null if nothing found.</returns>
-        public T Find<T> (string identifier, bool recursive = false) where T : Entity
+        public T Find<T>(string identifier, bool recursive = false) where T : Entity
         {
             // should we return any entity type?
             bool anyType = typeof(T) == typeof(Entity);
@@ -1005,7 +1005,8 @@ namespace GeonBit.UI.Entities
                     // special case - if should do events even when parent is locked and direct parent, skip
                     if (DoEventsIfDirectParentIsLocked)
                     {
-                        if (parent == _parent) {
+                        if (parent == _parent)
+                        {
                             parent = parent._parent;
                             continue;
                         }
@@ -1300,7 +1301,7 @@ namespace GeonBit.UI.Entities
                 dict[Identifier] = this;
 
             // iterate children
-            foreach(var child in _children)
+            foreach (var child in _children)
             {
                 child.PopulateDict(ref dict);
             }
@@ -1500,7 +1501,7 @@ namespace GeonBit.UI.Entities
             {
                 index = _children.Count;
             }
-            
+
             // add child at index
             child._indexInParent = index;
             _children.Insert(index, child);
@@ -2343,7 +2344,7 @@ namespace GeonBit.UI.Entities
             // update dest rect if needed (dest rect is calculated before draw, but is used for mouse collision detection as well,
             // so its better to calculate it here too in case something changed).
             UpdateDestinationRectsIfDirty();
-            
+
             // set if interactable
             _isInteractable = true;
 

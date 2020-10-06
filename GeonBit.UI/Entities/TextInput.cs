@@ -6,10 +6,10 @@
 // Since: 2016.
 //-----------------------------------------------------------------------------
 #endregion
+using GeonBit.UI.Entities.TextValidators;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
-using GeonBit.UI.Entities.TextValidators;
 
 namespace GeonBit.UI.Entities
 {
@@ -115,7 +115,7 @@ namespace GeonBit.UI.Entities
 
             // update default style
             UpdateStyle(DefaultStyle);
-            
+
             // default size of multiline text input is 4 times bigger
             if (multiline)
             {
@@ -603,7 +603,7 @@ namespace GeonBit.UI.Entities
         {
             // call base on focus change
             base.DoOnFocusChange();
-            
+
             // check if need to set default value
             if (ValueWhenEmpty != null && Value.Length == 0)
             {

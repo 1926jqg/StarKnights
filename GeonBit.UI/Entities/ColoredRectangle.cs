@@ -8,10 +8,8 @@
 // Since: 2016.
 //-----------------------------------------------------------------------------
 #endregion
-using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using GeonBit.UI.DataTypes;
 
 namespace GeonBit.UI.Entities
 {
@@ -115,14 +113,14 @@ namespace GeonBit.UI.Entities
 
             // draw outline
             if (outlineWidth > 0)
-			{
+            {
                 Rectangle outlineDest = _destRect;
-				outlineDest.X -= outlineWidth;
-				outlineDest.Y -= outlineWidth;
-				outlineDest.Width += outlineWidth * 2;
-				outlineDest.Height += outlineWidth * 2;
-				spriteBatch.Draw(Resources.WhiteTexture, outlineDest, OutlineColor);
-			}
+                outlineDest.X -= outlineWidth;
+                outlineDest.Y -= outlineWidth;
+                outlineDest.Width += outlineWidth * 2;
+                outlineDest.Height += outlineWidth * 2;
+                spriteBatch.Draw(Resources.WhiteTexture, outlineDest, OutlineColor);
+            }
 
             // get fill color
             Color fill = FillColor;
