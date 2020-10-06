@@ -26,18 +26,20 @@ namespace StarKnightsLibrary.UI
             _height = height;
             TransmissionManager = new TransmissionManager(width - height - 28 - 250, height - 2, 140);
             _space = space;
-            _paragraph = new RichParagraph("", scale: 1f, offset: new Vector2(-10, -10), size: new Vector2(250, 200));
-            _paragraph.Padding = new Vector2(0, 0);
+            _paragraph = new RichParagraph("", scale: 1f, offset: new Vector2(-10, -10), size: new Vector2(250, 200))
+            {
+                Padding = new Vector2(0, 0)
+            };
         }
 
         public void Draw(SpriteBatch spriteBatch, IContentContainer contentContainer, UserInterface ui)
         {
             TransmissionManager.Draw(ui, contentContainer);
-            DrawInfo(ui, contentContainer);
+            DrawInfo(ui);
             DrawMinimap(spriteBatch, contentContainer, 10, 10, _height, _height);
         }
 
-        private void DrawInfo(UserInterface ui, IContentContainer contentContainer)
+        private void DrawInfo(UserInterface ui)
         {
             var playerShip = _space.PointOfViewObject;
             var target = playerShip.Target as Ship;
@@ -59,8 +61,10 @@ namespace StarKnightsLibrary.UI
                 _infoPanel = new Panel(
                     new Vector2(panelWidth, panelHeight + 9),
                     anchor: Anchor.TopLeft,
-                    offset: new Vector2(_width - panelWidth - 10, ui.ScreenHeight - panelHeight - 13));
-                _infoPanel.Opacity = 128;
+                    offset: new Vector2(_width - panelWidth - 10, ui.ScreenHeight - panelHeight - 13))
+                {
+                    Opacity = 128
+                };
                 ui.AddEntity(_infoPanel);
                 _infoPanel.AddChild(_paragraph);
             }

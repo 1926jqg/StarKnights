@@ -39,10 +39,8 @@ namespace StarKnightsLibrary.GameObjects.Ships
             else if (cross > 0.0f)
                 spaceObject.TurnRight();
 
-            var shipTarget = spaceObject.Target as Ship;
-            if (shipTarget != null && Math.Abs(cross) < 22.5)
+            if (spaceObject.Target is Ship shipTarget && Math.Abs(cross) < 22.5)
             {
-
                 if (shipTarget?.ShieldGenerator.ShieldsOnline ?? true)
                 {
                     if ((shipTarget.Orientation.Position - spaceObject.Orientation.Position).Length() <= 320)
@@ -52,7 +50,6 @@ namespace StarKnightsLibrary.GameObjects.Ships
                 {
                     spaceObject.FireMissile(Space, true);
                 }
-
             }
 
             SetAcceleration(spaceObject);

@@ -379,8 +379,10 @@ namespace GeonBit.UI
             if (source.ToolTipText == null) return null;
 
             // create tooltip paragraph
-            var tooltip = new Paragraph(source.ToolTipText, size: new Vector2(500, -1));
-            tooltip.BackgroundColor = Color.Black;
+            var tooltip = new Paragraph(source.ToolTipText, size: new Vector2(500, -1))
+            {
+                BackgroundColor = Color.Black
+            };
 
             // add callback to update tooltip position
             tooltip.BeforeDraw += (Entity ent) =>
@@ -548,7 +550,7 @@ namespace GeonBit.UI
             UpdateTooltipText(gameTime, target);
 
             // default active entity is root panel
-            ActiveEntity = ActiveEntity ?? Root;
+            ActiveEntity ??= Root;
 
             // set current target entity
             TargetEntity = target;
@@ -710,7 +712,7 @@ namespace GeonBit.UI
         public Vector2 GetTransformedCursorPos(Vector2? addVector)
         {
             // default add vector
-            addVector = addVector ?? Vector2.Zero;
+            addVector ??= Vector2.Zero;
 
             // return transformed cursor position
             if (UseRenderTarget && RenderTargetTransformMatrix != null && !IncludeCursorInRenderTarget)

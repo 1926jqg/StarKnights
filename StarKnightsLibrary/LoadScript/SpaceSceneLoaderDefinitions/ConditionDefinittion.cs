@@ -16,24 +16,20 @@ namespace StarKnightsLibrary.LoadScript.SpaceSceneLoaderDefinitions
 
         public Condition<ConditionResult> GetCondition()
         {
-            switch (Type)
+            return Type switch
             {
-                case "NotShipExists":
-                    return NotShipExists;
-                default:
-                    throw new Exception($"Condition Type {Type} is not defined");
-            }
+                "NotShipExists" => NotShipExists,
+                _ => throw new Exception($"Condition Type {Type} is not defined")
+            };
         }
 
         public Condition<ConditionResult<Ship>> GetConditionShip()
         {
-            switch (Type)
+            return Type switch
             {
-                case "ShipExists":
-                    return ShipExists;
-                default:
-                    throw new Exception($"Condition Type {Type} is not defined");
-            }
+                "ShipExists" => ShipExists,
+                _ => throw new Exception($"Condition Type {Type} is not defined")
+            };
         }
 
         private IEnumerable<Ship> GetShips(ISpaceScene enviroment)

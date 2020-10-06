@@ -25,7 +25,7 @@ namespace StarKnightsLibrary.LoadScript
         {
             if (value?.StartsWith("rand") ?? false)
             {
-                value = value.Substring(5, value.Length - 6);
+                value = value[5..(value.Length - 1)];
                 var split = value.Split(',');
                 var max = int.Parse(split[0]);
                 var min = int.Parse(split[1]);

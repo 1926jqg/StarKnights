@@ -15,24 +15,20 @@ namespace StarKnightsLibrary.LoadScript.SpaceSceneLoaderDefinitions
 
         public Effect<ConditionResult> GetEffect()
         {
-            switch (Type)
+            return Type switch
             {
-                case "SendTransmission":
-                    return SendTransmission;
-                default:
-                    throw new Exception($"Effect Type {Type} is not defined for results with no data.");
-            }
+                "SendTransmission" => SendTransmission,
+                _ => throw new Exception($"Effect Type {Type} is not defined for results with no data.")
+            };
         }
 
         public Effect<ConditionResult<T>> GetEffect<T>()
         {
-            switch (Type)
+            return Type switch
             {
-                case "SendTransmission":
-                    return SendTransmission;
-                default:
-                    throw new Exception($"Effect Type {Type} is not defined for results of type {typeof(T)}.");
-            }
+                "SendTransmission" => SendTransmission,
+                _ => throw new Exception($"Effect Type {Type} is not defined for results of type {typeof(T)}.")
+            };
         }
 
         private void SendTransmission(ISpaceScene enviroment, Func<string, string> messageFunc)

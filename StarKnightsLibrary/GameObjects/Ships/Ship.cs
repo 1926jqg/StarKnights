@@ -167,18 +167,12 @@ namespace StarKnightsLibrary.GameObjects.Ships
                 ShieldGenerator.TakeDamage(ammount, type);
             else
             {
-                int damage;
-                switch (type)
+                var damage = type switch
                 {
-                    case DamageType.Thermal:
-                        damage = ammount / 6;
-                        break;
-                    case DamageType.Concussive:
-                        damage = ammount;
-                        break;
-                    default:
-                        throw new DamageTypeUnexpectedException(type);
-                }
+                    DamageType.Thermal => ammount / 6,
+                    DamageType.Concussive => ammount,
+                    _ => throw new DamageTypeUnexpectedException(type)
+                };
                 Hull -= damage;
                 if (Hull <= 0)
                     Destroyed = true;
