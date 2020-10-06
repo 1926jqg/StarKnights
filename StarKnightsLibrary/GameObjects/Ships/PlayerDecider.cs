@@ -10,13 +10,9 @@ namespace StarKnightsLibrary.GameObjects.Ships
         public override void Action(Ship spaceObject)
         {
             if (Keyboard.GetState().IsKeyDown(Keys.Up) || GamePad.GetState(1).IsButtonDown(Buttons.LeftTrigger))
-            {
                 spaceObject.Accelerate();
-            }
             else
-            {
                 spaceObject.Decelerate();
-            }
 
             if (Keyboard.GetState().IsKeyDown(Keys.A) || GamePad.GetState(1).ThumbSticks.Right.X < 0)
                 spaceObject.TurnLeft();

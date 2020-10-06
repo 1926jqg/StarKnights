@@ -28,7 +28,7 @@ namespace StarKnightsLibrary.Scenes
 
             var mainPanel = new Panel(new Vector2(400, 200), anchor: Anchor.BottomCenter, offset: new Vector2(0, 100));
             var button = new Button("New Game");
-            button.OnClick = OnClick;
+            button.OnClick += OnClick;
             mainPanel.AddChild(button);
 
             _userInterface.AddEntity(mainPanel);
