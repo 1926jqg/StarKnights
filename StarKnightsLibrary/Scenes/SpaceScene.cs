@@ -2,8 +2,8 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using StarKnightsLibrary.GameFlow;
-using StarKnightsLibrary.GameObjects.Ships;
-using StarKnightsLibrary.GameObjects.Ships.Deciders;
+using StarKnightsLibrary.SpaceObjects.Ships;
+using StarKnightsLibrary.SpaceObjects.Ships.Deciders;
 using StarKnightsLibrary.Transmissions;
 using StarKnightsLibrary.Triggers;
 using StarKnightsLibrary.UI;

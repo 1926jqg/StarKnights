@@ -1,5 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
-using StarKnightsLibrary.GameObjects.Ships;
+using StarKnightsLibrary.SpaceObjects.Ships;
 using StarKnightsLibrary.Scenes;
 using StarKnightsLibrary.Triggers;
 using StarKnightsLibrary.UtilityObjects.Extensions;

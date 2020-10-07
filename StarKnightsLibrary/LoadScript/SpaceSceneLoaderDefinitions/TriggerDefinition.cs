@@ -1,4 +1,4 @@
-﻿using StarKnightsLibrary.GameObjects.Ships;
+﻿using StarKnightsLibrary.SpaceObjects.Ships;
 using StarKnightsLibrary.Scenes;
 using System;
 

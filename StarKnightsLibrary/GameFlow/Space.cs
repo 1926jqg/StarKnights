@@ -1,9 +1,9 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using StarKnightsLibrary.GameObjects;
-using StarKnightsLibrary.GameObjects.Projectiles.Missiles;
-using StarKnightsLibrary.GameObjects.Ships;
-using StarKnightsLibrary.GameObjects.Ships.Deciders;
+using StarKnightsLibrary.SpaceObjects;
+using StarKnightsLibrary.SpaceObjects.Projectiles.Missiles;
+using StarKnightsLibrary.SpaceObjects.Ships;
+using StarKnightsLibrary.SpaceObjects.Ships.Deciders;
 using StarKnightsLibrary.UtilityObjects;
 using StarKnightsLibrary.UtilityObjects.Collision;
 using StarKnightsLibrary.UtilityObjects.Extensions;

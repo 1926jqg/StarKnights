@@ -1,5 +1,5 @@
-﻿using StarKnightsLibrary.GameObjects.Ships;
-using StarKnightsLibrary.GameObjects.Ships.Deciders;
+﻿using StarKnightsLibrary.SpaceObjects.Ships;
+using StarKnightsLibrary.SpaceObjects.Ships.Deciders;
 using StarKnightsLibrary.Scenes;
 using System.Runtime.Serialization;
 
