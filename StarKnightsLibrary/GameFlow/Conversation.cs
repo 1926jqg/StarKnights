@@ -1,4 +1,4 @@
-﻿ namespace StarKnightsLibrary.GameFlow
+﻿namespace StarKnightsLibrary.GameFlow
 {
     public interface IConversation
     {
@@ -6,5 +6,10 @@
     }
     public class Conversation : IConversation
     {
+
+        public Conversation()
+        {
+
+        }
     }
 }
