@@ -1635,13 +1635,6 @@
 /processorParam:TextureFormat=Color
 /build:missile.png
 
-#begin MyFont.spritefont
-/importer:FontDescriptionImporter
-/processor:FontDescriptionProcessor
-/processorParam:PremultiplyAlpha=True
-/processorParam:TextureFormat=Compressed
-/build:MyFont.spritefont
-
 #begin ShipOne.png
 /importer:TextureImporter
 /processor:TextureProcessor
