@@ -19,6 +19,9 @@ namespace StarKnightsLibrary.LoadScript.SpaceSceneLoaderDefinitions
             return Type switch
             {
                 "NotShipExists" => NotShipExists,
+                "NotActiveTransmission" => NotActiveTransmission,
+                "ShipExists" => ShipExists,
+                "ShipOutOfBounds" => ShipOutOfBounds,
                 _ => throw new Exception($"Condition Type {Type} is not defined")
             };
         }
@@ -28,6 +31,7 @@ namespace StarKnightsLibrary.LoadScript.SpaceSceneLoaderDefinitions
             return Type switch
             {
                 "ShipExists" => ShipExists,
+                "ShipOutOfBounds" => ShipOutOfBounds,
                 _ => throw new Exception($"Condition Type {Type} is not defined")
             };
         }
@@ -59,6 +63,14 @@ namespace StarKnightsLibrary.LoadScript.SpaceSceneLoaderDefinitions
             };
         }
 
+        private ConditionResult NotActiveTransmission(ISpaceScene enviroment)
+        {
+            return new ConditionResult
+            {
+                ConditionPassed = !enviroment.ActiveTransmission
+            };
+        }
+
         private ConditionResult<Ship> ShipExists(ISpaceScene enviroment)
         {
 
@@ -67,6 +79,18 @@ namespace StarKnightsLibrary.LoadScript.SpaceSceneLoaderDefinitions
             return new ConditionResult<Ship>
             {
                 ConditionPassed = ship != null,
+                Data = ship
+            };
+        }
+
+        private ConditionResult<Ship> ShipOutOfBounds(ISpaceScene enviroment)
+        {
+
+            var ship = GetShips(enviroment).FirstOrDefault();
+
+            return new ConditionResult<Ship>
+            {
+                ConditionPassed = !ship.IsInBounds(),
                 Data = ship
             };
         }

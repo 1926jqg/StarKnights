@@ -103,5 +103,7 @@ namespace StarKnightsLibrary.Scenes
                 return null;
             }
         }
+
+        public bool ActiveTransmission => _transmissionManager.ActiveTransmission != null;
     }
 }

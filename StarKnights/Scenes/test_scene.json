@@ -55,17 +55,40 @@
 		},*/
       {
         "Recurring": false,
-        "Condition": {
-          "Type": "ShipExists",
-          "Variables": {
-            "IsPlayer": "true"
+        "Conditions": [
+          {
+            "Type": "ShipExists",
+            "Variables": {
+              "IsPlayer": "true"
+            }
           }
-        },
+        ],
         "Effect": {
           "Type": "SendTransmission",
           "Variables": {
-            "Duration": "10",
+            "Duration": "60",
             "Message": "All enemy ships have been destroyed. And some very very very long other stuff. All enemy ships have been destroyed. And some very very very long other stuff. All enemy ships have been destroyed. And some very very very long other stuff. All enemy ships have been destroyed. And some very very very long other stuff. All enemy ships have been destroyed. And some very very very long other stuff. All enemy ships have been destroyed. And some very very very long other stuff. All enemy ships have been destroyed. And some very very very long other stuff. All enemy ships have been destroyed. And some very very very long other stuff."
+          }
+        }
+      },
+      {
+        "Recurring": true,
+        "Conditions": [
+          {
+            "Type": "ShipOutOfBounds",
+            "Variables": {
+              "IsPlayer": "true"
+            }
+          },
+          {
+            "Type": "NotActiveTransmission"
+          }
+        ],
+        "Effect": {
+          "Type": "SendTransmission",
+          "Variables": {
+            "Duration": "20",
+            "Message": "Sir. Return to the combat area."
           }
         }
       }

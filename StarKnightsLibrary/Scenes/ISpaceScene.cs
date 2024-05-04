@@ -9,5 +9,7 @@ namespace StarKnightsLibrary.Scenes
         IEnumerable<Ship> Ships { get; }
 
         void AddTransmission(ITransmission transmission, ulong duration);
+
+        bool ActiveTransmission { get; }
     }
 }

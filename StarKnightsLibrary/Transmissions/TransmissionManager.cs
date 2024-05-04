@@ -54,7 +54,7 @@ namespace StarKnightsLibrary.Transmissions
 
         public void Update(ISpaceScene enviroment)
         {
-            if (ActiveTransmission != null && --_transmissionQueue.Peek().DurationLeft <= 0)
+            if (ActiveTransmission != null && _transmissionQueue.Peek().DurationLeft-- <= 0)
             {
                 _transmissionQueue.Dequeue();
             }
