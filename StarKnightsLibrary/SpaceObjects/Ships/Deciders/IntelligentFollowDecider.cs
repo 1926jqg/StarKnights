@@ -17,13 +17,13 @@ namespace StarKnightsLibrary.SpaceObjects.Ships
 
         private IFollowDecider GetActiveDecider(Ship ship)
         {
-            return IsInBounds(ship) ? FollowDecider : (IFollowDecider)BoundaryDecider;
+            return IsInBounds(ship) ? FollowDecider : BoundaryDecider;
         }
 
-        public override void Action(Ship spaceObject)
+        protected override void GetAction(Ship spaceObject)
         {
             IFollowDecider activeDecider = GetActiveDecider(spaceObject);
-            activeDecider.Action(spaceObject);
+            activeDecider.TakeAction(spaceObject);
         }
 
         public void SetAcceleration(Ship ship)

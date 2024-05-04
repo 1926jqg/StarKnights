@@ -136,7 +136,7 @@ namespace StarKnightsLibrary.SpaceObjects.Ships
 
         protected override void AdditionalUpdate()
         {
-            Decider.Action(this);
+            Decider.TakeAction(this);
             if (Target?.Destroyed ?? false)
                 Target = null;
             PowerManagementSystem.Update();

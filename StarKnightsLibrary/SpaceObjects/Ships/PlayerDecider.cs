@@ -5,9 +5,30 @@ namespace StarKnightsLibrary.SpaceObjects.Ships
 {
     public class PlayerDecider : BaseShipDecider
     {
-        public PlayerDecider(Space space) : base(space) { }
+        private BoundaryDecider _boundaryDecider;
+        private int _outOfBoundsCount = 0;
+        private const int OUT_OF_BOUNDS_LIMIT = 20;
 
-        public override void Action(Ship spaceObject)
+        public PlayerDecider(Space space) : base(space) { 
+            _boundaryDecider = new BoundaryDecider(space);
+        
+        }
+
+        protected override void GetAction(Ship spaceObject)
+        {
+            if(!Space.IsInBounds(spaceObject)) { 
+                if(_outOfBoundsCount++ >= OUT_OF_BOUNDS_LIMIT)
+                {
+                    _boundaryDecider.TakeAction(spaceObject);
+                }
+                return;
+            }
+            _outOfBoundsCount = 0;
+
+            ProcessPlayerInput(spaceObject);
+        }
+
+        private void ProcessPlayerInput(Ship spaceObject)
         {
             if (Keyboard.GetState().IsKeyDown(Keys.Up) || GamePad.GetState(1).IsButtonDown(Buttons.LeftTrigger))
                 spaceObject.Accelerate();

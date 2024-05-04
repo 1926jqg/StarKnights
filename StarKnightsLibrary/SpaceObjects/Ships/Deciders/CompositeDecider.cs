@@ -15,10 +15,10 @@ namespace StarKnightsLibrary.SpaceObjects.Ships.Deciders
             _targetDecider = targetDecider;
         }
 
-        public override void Action(Ship spaceObject)
+        protected override void GetAction(Ship spaceObject)
         {
-            _targetDecider.Action(spaceObject);
-            _followDecider.Action(spaceObject);
+            _targetDecider.TakeAction(spaceObject);
+            _followDecider.TakeAction(spaceObject);
         }
 
         public void SetAcceleration(Ship ship)

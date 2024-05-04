@@ -12,7 +12,7 @@ namespace StarKnightsLibrary.SpaceObjects.Projectiles.Missiles
             Target = target;
         }
 
-        public void Action(Missile spaceObject)
+        public void TakeAction(Missile spaceObject)
         {
             var heading = new Vector2((float)Math.Sin(spaceObject.Orientation.Angle), -(float)Math.Cos(spaceObject.Orientation.Angle));
             var target = spaceObject.Orientation.Position - Target.Orientation.Position;

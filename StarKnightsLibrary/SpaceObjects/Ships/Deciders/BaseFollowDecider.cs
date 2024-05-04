@@ -11,7 +11,7 @@ namespace StarKnightsLibrary.SpaceObjects.Ships
     }
 
     public abstract class BaseFollowDecider : BaseShipDecider, IFollowDecider
-    {
+    {        
         protected BaseFollowDecider(Space space) : base(space) { }
 
         protected Vector2? Target { get; private set; }
@@ -20,7 +20,7 @@ namespace StarKnightsLibrary.SpaceObjects.Ships
 
         public abstract void SetAcceleration(Ship ship);
 
-        public override void Action(Ship spaceObject)
+        protected override void GetAction(Ship spaceObject)
         {
             Target = UpdateTarget(spaceObject);
             if (!Target.HasValue)

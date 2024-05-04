@@ -7,7 +7,7 @@ namespace StarKnightsLibrary.SpaceObjects.Ships
         public EmptyShipDecider() : this(null) { }
         public EmptyShipDecider(Space space) : base(space) { }
 
-        public override void Action(Ship spaceObject)
+        protected override void GetAction(Ship spaceObject)
         {
             //Do Nothing
         }

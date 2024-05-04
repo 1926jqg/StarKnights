@@ -52,7 +52,7 @@ namespace StarKnightsLibrary.GameFlow
 
         private readonly SpatialHashMap<SpaceObject> _spatialHashMap;
 
-        public Space(int width, int height, int outOfBoundsLimit = 100)
+        public Space(int width, int height, int outOfBoundsLimit = 1000)
         {
             ObjectList = new List<SpaceObject>();
             OutOfBoundsObjects = new Dictionary<SpaceObject, int>();

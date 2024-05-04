@@ -20,7 +20,7 @@
         protected override void AdditionalUpdate()
         {
             Velocity.Current += Velocity.Current / 15;
-            Decider.Action(this);
+            Decider.TakeAction(this);
         }
 
         public override void TakeDamage(int ammount, DamageType type)

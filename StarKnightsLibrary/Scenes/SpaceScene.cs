@@ -26,7 +26,7 @@ namespace StarKnightsLibrary.Scenes
 
         public IEnumerable<Ship> Ships => _space.Ships;
 
-        public SpaceScene(Viewport viewport, int width, int height, int outOfBoundsLimit = 100)
+        public SpaceScene(Viewport viewport, int width, int height, int outOfBoundsLimit = 1000)
         {
             _space = new Space(width, height, outOfBoundsLimit);
             _screenposSpace.X = viewport.Width / 2f;

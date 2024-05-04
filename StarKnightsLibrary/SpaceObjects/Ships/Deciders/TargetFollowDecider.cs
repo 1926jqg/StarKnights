@@ -5,9 +5,11 @@ namespace StarKnightsLibrary.SpaceObjects.Ships
 {
     public class TargetFollowDecider : BaseFollowDecider
     {
-        public TargetFollowDecider() : base(null) { }
+        public TargetFollowDecider() : this(null) { }
 
-        public TargetFollowDecider(Space space) : base(space) { }
+        public TargetFollowDecider(Space space) : base(space) { 
+            DecisionDelay = 2;
+        }
 
         public override Vector2? UpdateTarget(Ship spaceObject)
         {

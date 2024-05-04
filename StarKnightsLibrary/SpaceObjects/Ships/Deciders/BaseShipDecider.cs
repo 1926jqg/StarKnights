@@ -6,12 +6,26 @@ namespace StarKnightsLibrary.SpaceObjects.Ships
     {
         protected Space Space { get; private set; }
 
+        protected int DecisionDelay { get; set; } = 0;
+
+        private int _decisionDelayCounter;
+
         protected BaseShipDecider(Space space)
         {
             Initialize(space);
+            _decisionDelayCounter = 0;
         }
 
-        public abstract void Action(Ship spaceObject);
+        public void TakeAction(Ship spaceObject)
+        {
+            if (_decisionDelayCounter++ >= DecisionDelay) 
+            {
+                _decisionDelayCounter = 0;
+                GetAction(spaceObject);
+            }
+        }
+
+        protected abstract void GetAction(Ship spaceObject);
 
         public void Initialize(Space space)
         {

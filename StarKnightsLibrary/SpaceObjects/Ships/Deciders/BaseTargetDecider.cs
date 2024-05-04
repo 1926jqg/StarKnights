@@ -6,7 +6,7 @@ namespace StarKnightsLibrary.SpaceObjects.Ships.Deciders
     {
         protected BaseTargetDecider(Space space) : base(space) { }
 
-        public override void Action(Ship spaceObject)
+        protected override void GetAction(Ship spaceObject)
         {
             spaceObject.Target = ChooseTarget(spaceObject);
         }
