@@ -530,14 +530,6 @@ namespace GeonBit.UI.Entities
         }
 
         /// <summary>
-        /// Draw entity outline. Note: in paragraph its a special case and we implement it inside the DrawEntity function.
-        /// </summary>
-        /// <param name="spriteBatch">Sprite batch to draw on.</param>
-        override protected void DrawEntityOutline(SpriteBatch spriteBatch)
-        {
-        }
-
-        /// <summary>
         /// Draw the entity.
         /// </summary>
         /// <param name="spriteBatch">Sprite batch to draw on.</param>

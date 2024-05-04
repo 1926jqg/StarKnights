@@ -1161,12 +1161,6 @@ namespace GeonBit.UI.Entities
             // calc desination rects (if needed)
             UpdateDestinationRectsIfDirty();
 
-            // draw shadow
-            DrawEntityShadow(spriteBatch);
-
-            // draw entity outline
-            DrawEntityOutline(spriteBatch);
-
             // draw the entity itself
             UserInterface.Active.DrawUtils.StartDraw(spriteBatch, _isCurrentlyDisabled);
             DrawEntity(spriteBatch, DrawPhase.Base);
@@ -1321,116 +1315,6 @@ namespace GeonBit.UI.Entities
         /// <param name="spriteBatch">SpriteBatch used to draw entities.</param>
         protected virtual void AfterDrawChildren(SpriteBatch spriteBatch)
         {
-        }
-
-        /// <summary>
-        /// Draw entity shadow (if defined shadow).
-        /// </summary>
-        /// <param name="spriteBatch">Sprite batch to draw on.</param>
-        virtual protected void DrawEntityShadow(SpriteBatch spriteBatch)
-        {
-            // store current 'is-dirty' flag, because it changes internally while drawing shadow
-            bool isDirty = _isDirty;
-
-            // get current shadow color and if transparent skip
-            Color shadowColor = ShadowColor;
-            if (shadowColor.A == 0) { return; }
-
-            // get shadow scale
-            float shadowScale = ShadowScale;
-
-            // update position to draw shadow
-            _destRect.X += (int)ShadowOffset.X;
-            _destRect.Y += (int)ShadowOffset.Y;
-
-            // store previous state and colors
-            Color oldFill = FillColor;
-            Color oldOutline = OutlineColor;
-            float oldScale = Scale;
-            int oldOutlineWidth = OutlineWidth;
-            EntityState oldState = _entityState;
-
-            // set default colors and state for shadow pass
-            FillColor = shadowColor;
-            OutlineColor = Color.Transparent;
-            OutlineWidth = 0;
-            Scale = shadowScale;
-            _entityState = EntityState.Default;
-
-            // if disabled, turn color into greyscale
-            if (_isCurrentlyDisabled)
-            {
-                FillColor = new Color(Color.White * (((shadowColor.R + shadowColor.G + shadowColor.B) / 3f) / 255f), shadowColor.A);
-            }
-
-            // draw with shadow effect
-            UserInterface.Active.DrawUtils.StartDrawSilhouette(spriteBatch);
-            DrawEntity(spriteBatch, DrawPhase.Shadow);
-            UserInterface.Active.DrawUtils.EndDraw(spriteBatch);
-
-            // return position and colors back to what they were
-            _destRect.X -= (int)ShadowOffset.X;
-            _destRect.Y -= (int)ShadowOffset.Y;
-            FillColor = oldFill;
-            Scale = oldScale;
-            OutlineColor = oldOutline;
-            OutlineWidth = oldOutlineWidth;
-            _entityState = oldState;
-
-            // restore is-dirty flag
-            _isDirty = isDirty;
-        }
-
-        /// <summary>
-        /// Draw entity outline.
-        /// </summary>
-        /// <param name="spriteBatch">Sprite batch to draw on.</param>
-        virtual protected void DrawEntityOutline(SpriteBatch spriteBatch)
-        {
-            // get outline width and if 0 return
-            int outlineWidth = OutlineWidth;
-            if (OutlineWidth == 0) { return; }
-
-            // get outline color
-            Color outlineColor = OutlineColor;
-
-            // if disabled, turn outline to grey
-            if (_isCurrentlyDisabled)
-            {
-                outlineColor = new Color(Color.White * (((outlineColor.R + outlineColor.G + outlineColor.B) / 3f) / 255f), outlineColor.A);
-            }
-
-            // store previous fill color
-            Color oldFill = FillColor;
-
-            // store original destination rect
-            Rectangle originalDest = _destRect;
-            Rectangle originalIntDest = _destRectInternal;
-
-            // store entity previous state
-            EntityState oldState = _entityState;
-
-            // set fill color
-            SetStyleProperty(StylePropertyIds.FillColor, new StyleProperty(outlineColor), oldState, markAsDirty: false);
-
-            // draw the entity outline
-            UserInterface.Active.DrawUtils.StartDrawSilhouette(spriteBatch);
-            _destRect.Location = originalDest.Location + new Point(-outlineWidth, 0);
-            DrawEntity(spriteBatch, DrawPhase.Outline);
-            _destRect.Location = originalDest.Location + new Point(0, -outlineWidth);
-            DrawEntity(spriteBatch, DrawPhase.Outline);
-            _destRect.Location = originalDest.Location + new Point(outlineWidth, 0);
-            DrawEntity(spriteBatch, DrawPhase.Outline);
-            _destRect.Location = originalDest.Location + new Point(0, outlineWidth);
-            DrawEntity(spriteBatch, DrawPhase.Outline);
-            UserInterface.Active.DrawUtils.EndDraw(spriteBatch);
-
-            // turn back to previous fill color
-            SetStyleProperty(StylePropertyIds.FillColor, new StyleProperty(oldFill), oldState, markAsDirty: false);
-
-            // return to the original destination rect
-            _destRect = originalDest;
-            _destRectInternal = originalIntDest;
         }
 
         /// <summary>

@@ -544,22 +544,7 @@ namespace GeonBit.UI
         {
             // start drawing
             spriteBatch.Begin(SpriteSortMode.Deferred, UserInterface.Active.BlendState, UserInterface.Active.SamplerState,
-                DepthStencilState.None, RasterizerState.CullCounterClockwise,
-                isDisabled ? Resources.DisabledEffect : null);
-
-            // update drawing target
-            UpdateRenderTarget(spriteBatch);
-        }
-
-        /// <summary>
-        /// Start drawing on a given SpriteBatch, but only draw colored Silhouette of the texture.
-        /// </summary>
-        /// <param name="spriteBatch">SpriteBatch to draw on.</param>
-        public virtual void StartDrawSilhouette(SpriteBatch spriteBatch)
-        {
-            // start drawing silhouette
-            spriteBatch.Begin(SpriteSortMode.Deferred, UserInterface.Active.BlendState, UserInterface.Active.SamplerState,
-                DepthStencilState.None, RasterizerState.CullCounterClockwise, Resources.SilhouetteEffect);
+                DepthStencilState.None, RasterizerState.CullCounterClockwise, null);
 
             // update drawing target
             UpdateRenderTarget(spriteBatch);

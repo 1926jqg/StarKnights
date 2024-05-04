@@ -242,12 +242,6 @@ namespace GeonBit.UI
         /// <summary>Default font types.</summary>
         public static SpriteFont[] Fonts;
 
-        /// <summary>Effect for disabled entities (greyscale).</summary>
-        public static Effect DisabledEffect;
-
-        /// <summary>An effect to draw just a silhouette of the texture.</summary>
-        public static Effect SilhouetteEffect;
-
         /// <summary>Store the content manager instance</summary>
         internal static ContentManager _content;
 
@@ -330,10 +324,6 @@ namespace GeonBit.UI
 
             // load progress bar metadata
             ProgressBarData = content.Load<TextureData>(_root + "textures/progressbar_md");
-
-            // load effects
-            DisabledEffect = content.Load<Effect>(_root + "effects/disabled");
-            SilhouetteEffect = content.Load<Effect>(_root + "effects/silhouette");
 
             // load default styleSheets
             LoadDefaultStyles(ref Entity.DefaultStyle, "Entity", _root, content);
